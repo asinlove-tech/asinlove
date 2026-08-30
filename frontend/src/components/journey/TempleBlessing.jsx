@@ -7,11 +7,13 @@ import { Ornament } from "@/components/shared/Ornament";
 export const TempleBlessing = () => {
     const sectionRef = useRef(null);
     const shrineImgRef = useRef(null);
+    const bgRef = useRef(null);
     const revealRef = useReveal();
 
     useRafScroll(() => {
         const section = sectionRef.current;
         const img = shrineImgRef.current;
+        const bg = bgRef.current;
         if (!section || !img) return;
 
         const vh = window.innerHeight;
@@ -26,6 +28,16 @@ export const TempleBlessing = () => {
         img.style.transformOrigin = "center bottom";
         img.style.transform = `translateY(${-p * 40}px) scale(${1 - p * 0.35})`;
         img.style.opacity = showShrine ? "1" : "0";
+
+        // Carpet background: gradually fades to the page's ivory background
+        // as the section scrolls past, the same way the old fixed temple
+        // backdrop faded out near the end of its scroll range (rather than
+        // ending on a hard visual cut). Fade runs over the final ~1.1vh as
+        // the section's bottom edge approaches and crosses the viewport top.
+        if (bg) {
+            const fadeOut = 1 - Math.min(1, Math.max(0, rect.bottom / (vh * 1.1)));
+            bg.style.opacity = String(1 - fadeOut);
+        }
     });
 
     useEffect(() => {
@@ -48,17 +60,18 @@ export const TempleBlessing = () => {
             data-testid="temple-blessing"
             data-carpet-region
             aria-label="Blessing and invitation"
-            className="relative px-6 pb-16 pt-16 md:pb-24 md:pt-20 carpet-bg"
-            style={{ backgroundImage: "url(/weddingSiteNew/images/carpet-crop.webp)" }}
+            className="relative px-6 pb-16 pt-16 md:pb-24 md:pt-20"
         >
-            <div className="absolute inset-0 bg-[#E8A35C]/[0.05]" aria-hidden="true" />
-            {/* fade the carpet out into the page's ivory background before the
-                next section, instead of ending on a hard edge */}
+            {/* Carpet background lives on its own layer (not the section
+                background directly) so its opacity can be scroll-animated
+                independently of the text content above it. */}
             <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-40 md:h-56"
+                ref={bgRef}
                 aria-hidden="true"
-                style={{ background: "linear-gradient(to bottom, transparent, var(--ivory) 92%)" }}
+                className="pointer-events-none absolute inset-0 carpet-bg will-change-[opacity]"
+                style={{ backgroundImage: "url(/weddingSiteNew/images/carpet-crop.webp)" }}
             />
+            <div className="absolute inset-0 bg-[#E8A35C]/[0.05]" aria-hidden="true" />
 
             <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center">
                 <div
