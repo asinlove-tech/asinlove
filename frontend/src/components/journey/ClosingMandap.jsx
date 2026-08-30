@@ -93,7 +93,7 @@ export const ClosingMandap = () => {
         <section
             ref={sectionRef}
             data-testid="closing-mandap"
-            aria-label="Closing scene — the wedding mandap"
+            aria-label="Closing scene - the wedding mandap"
             className="relative h-[280vh]"
         >
             <div className="sticky top-0 h-screen overflow-hidden">

@@ -40,7 +40,7 @@ body {
 }
 /* ---- gopuram top section: tower + sky, names overlaid ----
    background-image itself is set via inline style in GopuramTop.jsx
-   (not here) — a CSS url() with a leading slash gets run through
+   (not here) - a CSS url() with a leading slash gets run through
    css-loader/webpack's module resolver and fails to find the file;
    an inline JS style is requested directly from the browser instead,
    same as the rest of this codebase does for /weddingSiteNew/images/*.
@@ -49,7 +49,7 @@ body {
    behind it. On mobile the photo uses `cover` so it fills the section
    edge-to-edge and the gradient never shows. On desktop the photo
    switches to `contain` so the FULL tower is always visible instead of
-   being cropped/zoomed on wide screens — the gradient fills the
+   being cropped/zoomed on wide screens - the gradient fills the
    letterbox gutters left/right so it still reads as one continuous sky. */
 .gopuram-top-bg {
     background-repeat: no-repeat, no-repeat;

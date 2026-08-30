@@ -20,7 +20,7 @@ export const TempleBlessing = () => {
         const rect = section.getBoundingClientRect();
 
         // Ganesha's gentle scale/rise as the section scrolls into view, and
-        // his fade-in once the carpet trigger point is reached — unchanged
+        // his fade-in once the carpet trigger point is reached - unchanged
         // from before, just no longer dependent on the old fixed backdrop.
         const p = Math.min(1, Math.max(0, (vh * 0.9 - rect.top) / (vh * 1.15)));
         const showShrine = rect.top <= vh * 0.6; // carpet trigger point
