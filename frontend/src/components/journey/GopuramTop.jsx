@@ -34,7 +34,7 @@ export const GopuramTop = () => {
             className="relative flex h-[100svh] flex-col items-center justify-between overflow-hidden gopuram-top-bg"
             style={{
                 backgroundImage:
-                    "url(/weddingSiteNew/images/gopuram-top-crop.webp), linear-gradient(180deg, #2f6a9c 0%, #5b7592 55%, #46739b 85%, #7a4340 100%)",
+                    "url(/asinlove/images/gopuram-top-crop.webp), linear-gradient(180deg, #2f6a9c 0%, #5b7592 55%, #46739b 85%, #7a4340 100%)",
             }}
         >
             <div className="absolute inset-0 bg-[#E8A35C]/[0.05]" aria-hidden="true" />

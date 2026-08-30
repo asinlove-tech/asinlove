@@ -68,8 +68,16 @@ export const TempleBlessing = () => {
             <div
                 ref={bgRef}
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 carpet-bg will-change-[opacity]"
-                style={{ backgroundImage: "url(/weddingSiteNew/images/carpet-crop.webp)" }}
+                className="pointer-events-none absolute inset-0 carpet-bg"
+                style={{
+                    backgroundImage: "url(/asinlove/images/carpet-crop.webp)",
+
+                    WebkitMaskImage:
+                        "linear-gradient(to bottom, black 0%, black 72%, rgba(0,0,0,0.96) 78%, rgba(0,0,0,0.82) 84%, rgba(0,0,0,0.58) 90%, rgba(0,0,0,0.28) 96%, transparent 100%)",
+
+                    maskImage:
+                        "linear-gradient(to bottom, black 0%, black 72%, rgba(0,0,0,0.96) 78%, rgba(0,0,0,0.82) 84%, rgba(0,0,0,0.58) 90%, rgba(0,0,0,0.28) 96%, transparent 100%)",
+                }}
             />
             <div className="absolute inset-0 bg-[#E8A35C]/[0.05]" aria-hidden="true" />
 
