@@ -99,7 +99,7 @@ export const infoSection = {
             title: "While You're in Coimbatore",
             text: "Temples, hills, good food and filter coffee - a few of our favourites for a little adventure beyond the wedding.",
             linkLabel: "Read our recommendations",
-            href: "https://canva.link/asinlovecbe",
+            href: "https://canva.link/4x0fmg4hkzzwhd0",
         },
     ],
 };
